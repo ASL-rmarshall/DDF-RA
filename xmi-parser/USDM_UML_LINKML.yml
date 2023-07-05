@@ -1,0 +1,409 @@
+classes:
+  Activity:
+    attributes:
+      activityDescription:
+      activityId:
+      activityIsConditional:
+        range: boolean
+      activityIsConditionalReason:
+      activityName:
+      activityTimelineId:
+      bcCategoryIds:
+        multivalued: true
+      bcSurrogateIds:
+        multivalued: true
+      biomedicalConceptIds:
+        multivalued: true
+      definedProcedures:
+        multivalued: true
+        range: Procedure
+      nextActivityId:
+      previousActivityId:
+  Address:
+    attributes:
+      city:
+      country:
+        range: Code
+      district:
+      line:
+      postalCode:
+      state:
+      text:
+  AliasCode:
+    attributes:
+      aliasCodeId:
+      standardCode:
+        range: Code
+      standardCodeAliases:
+        multivalued: true
+        range: Code
+  AnalysisPopulation:
+    attributes:
+      analysisPopulationId:
+      populationDescription:
+  BiomedicalConcept:
+    attributes:
+      bcConceptCode:
+        range: AliasCode
+      bcName:
+      bcProperties:
+        multivalued: true
+        range: BiomedicalConceptProperty
+      bcReference:
+      bcSynonyms:
+        multivalued: true
+      biomedicalConceptId:
+  BiomedicalConceptCategory:
+    attributes:
+      bcCategoryChildIds:
+        multivalued: true
+      bcCategoryCode:
+        range: AliasCode
+      bcCategoryDescription:
+      bcCategoryMemberIds:
+        multivalued: true
+      bcCategoryName:
+      biomedicalConceptCategoryId:
+  BiomedicalConceptProperty:
+    attributes:
+      bcPropertyConceptCode:
+        range: AliasCode
+      bcPropertyDatatype:
+      bcPropertyEnabled:
+        range: boolean
+      bcPropertyId:
+      bcPropertyName:
+      bcPropertyRequired:
+        range: boolean
+      bcPropertyResponseCodes:
+        multivalued: true
+        range: ResponseCode
+  BiomedicalConceptSurrogate:
+    attributes:
+      bcSurrogateDescription:
+      bcSurrogateId:
+      bcSurrogateName:
+      bcSurrogateReference:
+  Code:
+    attributes:
+      code:
+      codeId:
+      codeSystem:
+      codeSystemVersion:
+      decode:
+  Encounter:
+    attributes:
+      encounterContactModes:
+        multivalued: true
+        range: Code
+      encounterDescription:
+      encounterEnvironmentalSetting:
+        range: Code
+      encounterId:
+      encounterName:
+      encounterScheduledAtTimingId:
+      encounterType:
+        range: Code
+      nextEncounterId:
+      previousEncounterId:
+      transitionEndRule:
+        range: TransitionRule
+      transitionStartRule:
+        range: TransitionRule
+  Endpoint:
+    attributes:
+      endpointDescription:
+      endpointId:
+      endpointLevel:
+        range: Code
+      endpointPurposeDescription:
+  Estimand:
+    attributes:
+      analysisPopulation:
+        range: AnalysisPopulation
+      estimandId:
+      intercurrentEvents:
+        multivalued: true
+        range: IntercurrentEvent
+      summaryMeasure:
+      treatment:
+        range: InvestigationalIntervention
+      variableOfInterest:
+        range: Endpoint
+  Indication:
+    attributes:
+      codes:
+        multivalued: true
+        range: Code
+      indicationDescription:
+      indicationId:
+  IntercurrentEvent:
+    attributes:
+      intercurrentEventDescription:
+      intercurrentEventId:
+      intercurrentEventName:
+      intercurrentEventStrategy:
+  InvestigationalIntervention:
+    attributes:
+      codes:
+        multivalued: true
+        range: Code
+      interventionDescription:
+      investigationalInterventionId:
+  Objective:
+    attributes:
+      objectiveDescription:
+      objectiveEndpoints:
+        multivalued: true
+        range: Endpoint
+      objectiveId:
+      objectiveLevel:
+        range: Code
+  Organization:
+    attributes:
+      organizationId:
+      organizationIdentifier:
+      organizationIdentifierScheme:
+      organizationLegalAddress:
+        range: Address
+      organizationName:
+      organizationType:
+        range: Code
+  Procedure:
+    attributes:
+      procedureCode:
+        range: Code
+      procedureDescription:
+      procedureId:
+      procedureIsConditional:
+        range: boolean
+      procedureIsConditionalReason:
+      procedureName:
+      procedureType:
+  ResponseCode:
+    attributes:
+      code:
+        range: Code
+      responseCodeEnabled:
+        range: boolean
+      responseCodeId:
+  ScheduleTimeline:
+    attributes:
+      entryCondition:
+      mainTimeline:
+        range: boolean
+      scheduleTimelineDescription:
+      scheduleTimelineEntryId:
+      scheduleTimelineExits:
+        multivalued: true
+        range: ScheduleTimelineExit
+      scheduleTimelineId:
+      scheduleTimelineInstances:
+        multivalued: true
+        range: ScheduledInstance
+      scheduleTimelineName:
+  ScheduleTimelineExit:
+    attributes:
+      scheduleTimelineExitId:
+  ScheduledActivityInstance:
+    attributes:
+      activityIds:
+        multivalued: true
+      scheduledActivityInstanceEncounterId:
+  ScheduledDecisionInstance:
+    attributes:
+      conditionAssignments:
+  ScheduledInstance:
+    attributes:
+      defaultConditionId:
+      epochId:
+      scheduleTimelineExitId:
+      scheduledInstanceId:
+      scheduledInstanceTimelineId:
+      scheduledInstanceTimings:
+        multivalued: true
+        range: Timing
+      scheduledInstanceType:
+        range: ScheduledInstanceType
+  Study:
+    attributes:
+      businessTherapeuticAreas:
+        multivalued: true
+        range: Code
+      studyAcronym:
+      studyDesigns:
+        multivalued: true
+        range: StudyDesign
+      studyId:
+      studyIdentifiers:
+        multivalued: true
+        range: StudyIdentifier
+      studyPhase:
+        range: AliasCode
+      studyProtocolVersions:
+        multivalued: true
+        range: StudyProtocolVersion
+      studyRationale:
+      studyTitle:
+      studyType:
+        range: Code
+      studyVersion:
+  StudyArm:
+    attributes:
+      studyArmDataOriginDescription:
+      studyArmDataOriginType:
+        range: Code
+      studyArmDescription:
+      studyArmId:
+      studyArmName:
+      studyArmType:
+        range: Code
+  StudyCell:
+    attributes:
+      studyArmId:
+      studyCellId:
+      studyElementIds:
+        multivalued: true
+      studyEpochId:
+  StudyDesign:
+    attributes:
+      activities:
+        multivalued: true
+        range: Activity
+      bcCategories:
+        multivalued: true
+        range: BiomedicalConceptCategory
+      bcSurrogates:
+        multivalued: true
+        range: BiomedicalConceptSurrogate
+      biomedicalConcepts:
+        multivalued: true
+        range: BiomedicalConcept
+      encounters:
+        multivalued: true
+        range: Encounter
+      interventionModel:
+        range: Code
+      studyArms:
+        multivalued: true
+        range: StudyArm
+      studyCells:
+        multivalued: true
+        range: StudyCell
+      studyDesignBlindingScheme:
+        range: AliasCode
+      studyDesignDescription:
+      studyDesignId:
+      studyDesignName:
+      studyDesignRationale:
+      studyElements:
+        multivalued: true
+        range: StudyElement
+      studyEpochs:
+        multivalued: true
+        range: StudyEpoch
+      studyEstimands:
+        multivalued: true
+        range: Estimand
+      studyIndications:
+        multivalued: true
+        range: Indication
+      studyInvestigationalInterventions:
+        multivalued: true
+        range: InvestigationalIntervention
+      studyObjectives:
+        multivalued: true
+        range: Objective
+      studyPopulations:
+        multivalued: true
+        range: StudyDesignPopulation
+      studyScheduleTimelines:
+        multivalued: true
+        range: ScheduleTimeline
+      therapeuticAreas:
+        multivalued: true
+        range: Code
+      trialIntentTypes:
+        multivalued: true
+        range: Code
+      trialType:
+        multivalued: true
+        range: Code
+  StudyDesignPopulation:
+    attributes:
+      plannedMaximumAgeOfParticipants:
+      plannedMinimumAgeOfParticipants:
+      plannedNumberOfParticipants:
+        range: integer
+      plannedSexOfParticipants:
+        multivalued: true
+        range: Code
+      populationDescription:
+      studyDesignPopulationId:
+  StudyElement:
+    attributes:
+      studyElementDescription:
+      studyElementId:
+      studyElementName:
+      transitionEndRule:
+        range: TransitionRule
+      transitionStartRule:
+        range: TransitionRule
+  StudyEpoch:
+    attributes:
+      nextStudyEpochId:
+      previousStudyEpochId:
+      studyEpochDescription:
+      studyEpochId:
+      studyEpochName:
+      studyEpochType:
+        range: Code
+  StudyIdentifier:
+    attributes:
+      studyIdentifier:
+      studyIdentifierId:
+      studyIdentifierScope:
+        range: Organization
+  StudyProtocolVersion:
+    attributes:
+      briefTitle:
+      officialTitle:
+      protocolAmendment:
+      protocolEffectiveDate:
+        range: date
+      protocolStatus:
+        range: Code
+      protocolVersion:
+      publicTitle:
+      scientificTitle:
+      studyProtocolVersionId:
+  Timing:
+    attributes:
+      relativeFromScheduledInstanceId:
+      relativeToScheduledInstanceId:
+      timingDescription:
+      timingId:
+      timingRelativeToFrom:
+        range: Code
+      timingType:
+        range: Code
+      timingValue:
+      timingWindow:
+      timingWindowLower:
+      timingWindowUpper:
+  TransitionRule:
+    attributes:
+      transitionRuleDescription:
+      transitionRuleId:
+default_range: string
+enums:
+  ScheduledInstanceType:
+    permissible_values:
+      ACTIVITY:
+      DECISION:
+id: https://cdisc.org/DDF/USDMUML
+imports:
+- linkml:types
+name: USDMUML
+prefixes:
+  linkml: https://w3id.org/linkml/
